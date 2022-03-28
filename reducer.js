@@ -2,7 +2,8 @@ import * as ActionTypes from './actionTypes';
 
 const initialState={
     user:{
-        username:'Guest',
+        username:'',
+        Password:''
     },
 };
 
@@ -13,6 +14,11 @@ export const reducer =(state=initialState,action)=>{
                 ...state,
                 user:{...state.user,username:action.payload.username},
 
+            };
+            case ActionTypes.ADD_PASSWORD:
+            return{
+                ...state,
+                password:{...state.password,Password:action.payload.Password},
             };
             default:
                 return state;
