@@ -4,9 +4,10 @@ import {connect} from 'react-redux';
 import * as ActionTypes from '../store/actionTypes';
 const Welcome = (props) => {
   const [name, setName] = useState('');
-
+  const [password, setPassword] = useState('');
  const handleInput = () => {
     props.addUser(name);
+    props.addPassword(password);
     props.navigation.navigate('Home');
   };
   
@@ -19,6 +20,11 @@ const Welcome = (props) => {
         placeholder="Name"
         onChangeText={(e)=>setName(e)}
       />
+      <TextInput
+       style={Styles.input}
+        placeholder="Password"
+        onChangeText={(e)=>setPassword(e)}
+      />
       <Button title='Click'
         style={Styles.button}
         onPress={handleInput}/>
@@ -28,7 +34,8 @@ const Welcome = (props) => {
   );
 };
 
-const mapStateToProps = state => ({user: state.user});
+const mapStateToProps = state => ({
+  user: state.user,password: state.password});
 
 const mapDispatchToProps = dispatch => ({
   addUser: username =>
@@ -36,6 +43,13 @@ const mapDispatchToProps = dispatch => ({
       type: ActionTypes.ADD_USER,
       payload: {
         username,
+      },
+    }),
+    addPassword: Password =>
+    dispatch({
+      type: ActionTypes.ADD_PASSWORD,
+      payload: {
+        Password,
       },
     }),
 });
@@ -68,6 +82,8 @@ const Styles = StyleSheet.create({
     padding: 10,
     borderRadius: 20,
     textAlign: 'center',
-    width:250
+    width:250,
+    marginBottom:10,
+    marginTop:10
   },
 });
