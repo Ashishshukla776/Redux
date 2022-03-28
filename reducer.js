@@ -18,7 +18,7 @@ export const reducer =(state=initialState,action)=>{
             case ActionTypes.ADD_PASSWORD:
             return{
                 ...state,
-                password:{...state.password,Password:action.payload.Password},
+                user:{...state.user,Password:action.payload.Password},
             };
             default:
                 return state;
