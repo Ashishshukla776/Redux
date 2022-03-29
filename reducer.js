@@ -2,9 +2,10 @@ import * as ActionTypes from './actionTypes';
 
 const initialState={
     user:{
-        username:''
-      
-    },
+        username:'',
+        password:'',
+    },     
+  
 };
 
 export const reducer =(state=initialState,action)=>{
@@ -12,11 +13,16 @@ export const reducer =(state=initialState,action)=>{
         case ActionTypes.ADD_USER:
             return{
                 ...state,
-                user:{...state.user,username:action.payload.username},
+                user:{...state.user,username:action.payload.username}
 
             };
-           
+            case ActionTypes.ADD_PASSWORD:
+            return{
+                ...state,
+                user:{...state.user,password:action.payload.password}
+            };
             default:
                 return state;
     }
 }
+export default reducer;
