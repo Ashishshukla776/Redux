@@ -8,7 +8,8 @@ const Home=(props)=>{
     return(
     <View style={Styles.container}>
         
-        <Text style={{fontSize:30}}>Welcome {props.user.username}</Text>
+        <Text style={{fontSize:30}}>Name: {props.user.username}</Text>
+        <Text style={{fontSize:30,}}>Password: {props.user.password}</Text>
     </View>
     )
 }
@@ -22,6 +23,7 @@ const Styles=StyleSheet.create({
     container:{
       flex:1,
       justifyContent:'center',
-      alignItems:'center'  
+      alignItems:'center'
+      
     }
 })
